@@ -1,0 +1,28 @@
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "tide-prometheus"
+description = "Tide middleware for Prometheus with a few default metrics."
+version = "0.1.0"
+edition = "2018"
+authors = ["Bauke <me@bauke.xyz>"]
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/tide-prometheus"
+repository = "https://github.com/Bauke/tide-prometheus"
+readme = "README.md"
+keywords = ["tide", "middleware", "prometheus"]
+
+[lib]
+path = "source/lib.rs"
+
+[features]
+default = []
+process = ["prometheus/process"]
+
+[dependencies]
+prometheus = "0.12"
+tide = "0.16"
+
+[dev-dependencies]
+async-std = { version = "1.9.0", features = ["attributes"] }
+tide-testing = "0.1.3"
